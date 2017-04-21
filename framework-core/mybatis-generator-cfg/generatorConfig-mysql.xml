@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="F:/OpenSource/maven_repo/repository/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar" />
+	<context id="context1">
+		<plugin type="org.mybatis.generator.plugins.BypassExampleClassPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.BeanInfoGeneratorPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+			<property name="suppressJavaInterface" value="false"/>
+		</plugin>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8"
+			userId="demo" password="123456" />
+		<javaModelGenerator targetPackage="com.linda.framework.security.domain"
+			targetProject="framework-core" >
+			<property name="trimStrings" value="true" />
+			<property name="rootClass" value="com.linda.framework.core.domain.BaseBean"/>
+		</javaModelGenerator>
+		<!-- 生成MySQL映射文件 -->
+		<sqlMapGenerator targetPackage="com.linda.framework.security.dao.sqlmap.mysql"
+			targetProject="framework-core"/>
+ 
+		<table schema="test" tableName="secu_user">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="test" tableName="secu_role">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="test" tableName="secu_permission">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="test" tableName="secu_user_role">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+		<table schema="test" tableName="secu_role_permission">
+			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>

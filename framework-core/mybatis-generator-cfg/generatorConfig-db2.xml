@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="F:/project/wangchen/com.dota.demo/lib/db2jcc.jar" />
+	<context id="context1">
+		<plugin type="org.mybatis.generator.plugins.BypassExampleClassPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.BeanInfoGeneratorPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+			<property name="suppressJavaInterface" value="false"/>
+		</plugin>
+		<jdbcConnection driverClass="com.ibm.db2.jcc.DB2Driver"
+			connectionURL="jdbc:db2://localhost:50000/WPRCSDB:currentSchema=ESBLOG;"
+			userId="wch" password="chen" />
+		<javaModelGenerator targetPackage="demo.vo"
+			targetProject="com.dota.demo" >
+			<property name="trimStrings" value="true" />
+			<property name="rootClass" value="com.dota.framework.domain.BaseBean"/>
+		</javaModelGenerator>
+		<!-- 生成MySQL映射文件 -->
+		<sqlMapGenerator targetPackage="demo.dao.sqlmap.db2"
+			targetProject="com.dota.demo"/>
+ 
+		<table schema="ESBLOG" tableName="ROOM">
+			<generatedKey column="ROOM_ID" sqlStatement="db2" identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>

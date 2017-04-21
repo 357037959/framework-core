@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="F:/project/wangchen/com.dota.demo/lib/ojdbc14.jar" />
+	<context id="context1">
+		<plugin type="org.mybatis.generator.plugins.BypassExampleClassPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.BeanInfoGeneratorPlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+			<property name="suppressJavaInterface" value="false"/>
+		</plugin>
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@10.3.3.252:1521:orcl"
+			userId="rms2" password="rms2" />
+		<javaModelGenerator targetPackage="demo.vo"
+			targetProject="com.dota.demo" >
+			<property name="trimStrings" value="true" />
+			<property name="rootClass" value="com.dota.framework.domain.BaseBean"/>
+		</javaModelGenerator>
+		<!-- 生成Oracle映射文件 -->
+		<sqlMapGenerator targetPackage="demo.dao.sqlmap.oracle"
+			targetProject="com.dota.demo"/>
+		<table schema="rms2" tableName="ROOM">
+			<generatedKey column="ROOM_ID" sqlStatement="select s_id.nextval from dual" identity="false" />
+		</table> 
+	</context>
+</generatorConfiguration>
